@@ -1,0 +1,147 @@
+@import '../../mixin'; // responsive web
+
+.featured{
+    height: 75vh;
+    position:relative;
+    .category{
+        position:absolute;
+        top: 80px;
+        left: 50px;
+        font-size: 30px;
+        font-weight: 500;
+        color:#fff;
+        display: flex;
+        align-items: center;
+        select{
+            cursor: pointer;
+            background-color: var(--main-color);
+            border:1px soid #fff;
+            color:#fff;
+            margin-left: 20px;
+            padding:5px;
+        }
+    }
+    img{
+        width:100%;
+        height:100%;
+        object-fit: cover;
+    }
+    .info{
+        width: 45%;
+        position: absolute;
+        left: 50px;
+        bottom: 100px;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        img{
+            width: 400px;
+            // svg 이미지 색상 변환
+            filter: invert(98%) sepia(98%) saturate(0%) hue-rotate(342deg) brightness(101%) contrast(105%);
+        }
+        h1{
+            font-size: 45px;
+            text-shadow: 4px 3px 4px rgba(0,0,0,0.8);
+        }
+        .desc{
+            margin:30px 0px;
+            font-size: 18px;
+            line-height: 1.5em;
+            text-shadow: 4px 3px 4px rgba(0,0,0,0.8);
+        }
+        .buttons{
+            display: flex;
+            a{
+                text-decoration: none;
+            }
+            button{
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                font-weight: 500;
+                margin-right: 10px;
+                cursor: pointer;
+                a{
+                    color:unset;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                &.play{
+                    background-color: #fff;
+                    color:var(--main-color);
+                }
+                &.more{
+                    background-color: gray;
+                    color: #fff;
+                    text-decoration: none;
+                }
+                span{
+                    margin-left: 5px;
+                }
+            }
+        }
+    }
+}
+
+@include mobile {
+    .featured{
+        height:65vh;
+        .info{
+            width:100%;
+            position:absolute;
+            left: 0;
+            bottom: 3em;
+            align-items: center;
+            img{
+                width: 200px;
+                height: auto;
+                margin:0 auto 1.5em auto;
+            }
+            h1{
+                font-size: 2em;
+                margin-bottom: 1em;
+                padding:0 1.5em;
+                text-align: center;
+            }
+            .desc{
+                display: none;
+            }
+            .buttons{
+                button{
+                    padding:0.5em 1em;
+                    margin-right: 1em;
+                    font-size: #{$font-default};
+                }
+                button:last-child{
+                    margin-right: 0;
+                }
+                
+            }
+        }
+    }
+}
+
+@include tablet {
+    .featured{
+        height:auto;
+        .info{
+            width: 50%;
+            img{
+                width:300px;
+                margin-bottom: 1em;
+            }
+            .desc{
+                display: none;
+            }
+        }
+    }
+}
+
+@include desktop {
+  
+}
