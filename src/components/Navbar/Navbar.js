@@ -33,15 +33,14 @@ import { BrowserView, MobileView } from 'react-device-detect';
                 <div className={isScrolled ? "navbar scrolled":"navbar"}> 
                     <div className="container">
                         <div className="left">
-                            <Link to="/React-Netflix-Test/list">
+                            <Link to="/home">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="logo" />
                             </Link>
                             {/* 추후에 페이지를 만든 후 수정할 예정 */}
-                            <span>Homepage</span>
-                            <span>Series</span>
                             <span>Movies</span>
+                            <span>Series</span>
                             <span>New and Popular</span>
-                            {/* <span>My List</span> */}
+                            <span>My List</span>
                         </div>
                         <div className="right">
                             <Search className="icon"/>
@@ -51,8 +50,8 @@ import { BrowserView, MobileView } from 'react-device-detect';
                             <div className="profile">
                                 <ArrowDropDown className="icon"/>
                                 <div className="options">
-                                    <Link to="/React-Netflix-Test/register"><span>Register</span></Link>
-                                    <Link to="/React-Netflix-Test/login"><span>Login</span></Link>
+                                    <Link to="/"><span>Register</span></Link>
+                                    <Link to="/login"><span>Login</span></Link>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +70,7 @@ import { BrowserView, MobileView } from 'react-device-detect';
                                     <Close className="icon" /> : <Menu className="icon" />
                                 }
                             </div>
-                            <Link to="/React-Netflix-Test/list">
+                            <Link to="/home">
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="logo" />
                             </Link>
                         </div>
@@ -85,15 +84,14 @@ import { BrowserView, MobileView } from 'react-device-detect';
                             <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="profile" /> 
                             <div className="options">
                                 <p>Guest</p>
-                                <Link to="/React-Netflix-Test/register"><span>Register</span></Link>
-                                <Link to="/React-Netflix-Test/login"><span>Login</span></Link>
+                                <Link to="/"><span>Register</span></Link>
+                                <Link to="/login"><span>Login</span></Link>
                             </div>
                         </div>
                         <div className="menu">
                             <ul>
-                                <li>Homepage</li>
-                                <li>Series</li>
                                 <li>Movies</li>
+                                <li>Series</li>
                                 <li>New and Popular</li>
                                 <li>My List</li>
                             </ul>
