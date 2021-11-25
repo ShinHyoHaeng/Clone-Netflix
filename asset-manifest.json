@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Clone-Netflix/static/css/main.e79aa7d8.chunk.css",
-    "main.js": "/Clone-Netflix/static/js/main.efaac8fc.chunk.js",
-    "main.js.map": "/Clone-Netflix/static/js/main.efaac8fc.chunk.js.map",
+    "main.js": "/Clone-Netflix/static/js/main.3b24d531.chunk.js",
+    "main.js.map": "/Clone-Netflix/static/js/main.3b24d531.chunk.js.map",
     "runtime-main.js": "/Clone-Netflix/static/js/runtime-main.c3ccacb0.js",
     "runtime-main.js.map": "/Clone-Netflix/static/js/runtime-main.c3ccacb0.js.map",
     "static/js/2.e00e2dd5.chunk.js": "/Clone-Netflix/static/js/2.e00e2dd5.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.c3ccacb0.js",
     "static/js/2.e00e2dd5.chunk.js",
     "static/css/main.e79aa7d8.chunk.css",
-    "static/js/main.efaac8fc.chunk.js"
+    "static/js/main.3b24d531.chunk.js"
   ]
 }
