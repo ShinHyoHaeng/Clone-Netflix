@@ -24,7 +24,7 @@ const Watch = () => {
     return (
         <div className="watch">
             <div className="back">
-                <Link to="/home">
+                <Link to="/">
                     <ArrowBackOutlined/> 
                     Home
                 </Link>
