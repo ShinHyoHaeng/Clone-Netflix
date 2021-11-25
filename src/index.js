@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Browser from './Browser';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './App';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Browser />
-  </React.StrictMode>,
+  <Router basename="/Clone-Netflix">
+    <App />
+  </Router>,
   document.getElementById('root')
 );
