@@ -3,7 +3,7 @@ import App from './App.jsx'
 
 function Browser(){
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/Clone-Netflix">
             <App/>
         </BrowserRouter>
     )
