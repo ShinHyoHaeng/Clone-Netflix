@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background:var(--main-color);
     .loader {
         color: var(--red);
         text-indent: -9999em;

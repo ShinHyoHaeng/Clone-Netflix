@@ -8,11 +8,11 @@ class App extends Component {
     return (
       <>
         <Routes>
-          <Route path="/" element={<Register />}/>
+          {/* <Route path="/" element={<Register />}/> */}
           <Route path="/login" element={<Login />}/>
-          <Route path="/home" element={<Home />}/>
+          <Route path="/" element={<Home />}/>
           <Route path="/mypage" element={<MyPage />}/>
-          <Route path="/watch/:movieId" element={<Watch />}/>
+          <Route path="/watch/:type/:id" element={<Watch/>}/>
         </Routes>
       </>
     );

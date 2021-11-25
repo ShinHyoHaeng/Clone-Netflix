@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {API_URL, API_KEY } from '../../database/Movie'
+import {API_URL, API_KEY } from '../../components/TMDB/TMDB'
 import { ArrowBackOutlined } from '@material-ui/icons'
 import './watch.scss'
-import YoutubeEmbed from '../../components'
-import { Link } from 'react-router-dom';
+import {YoutubeEmbed} from '../../components'
+import { Link, useParams } from 'react-router-dom';
 
-export default function Watch({id, type}) {
-    let id = props.match.params.id;
+const Watch = () => {
+    const {id, type} = useParams();
     const [video, setVideo] = useState([]);
     const [embedId, setEmbedId] = useState('');
     const [name, setName] = useState('');
@@ -29,9 +29,10 @@ export default function Watch({id, type}) {
                     Home
                 </Link>
             </div>
-            {video && (
-                <YoutubeEmbed embedId={embedId} name={name}></YoutubeEmbed>
-            )}
+            {video && <YoutubeEmbed embedId={embedId} name={name}/>}
         </div>
     )
 }
+
+export default Watch
+

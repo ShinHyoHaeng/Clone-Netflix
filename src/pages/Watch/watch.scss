@@ -1,0 +1,43 @@
+@import '../../mixin'; // responsive web
+
+.watch{
+    width:100vw;
+    height:100vh;
+    background-color:var(--main-color);
+    .back{
+        display: flex;
+        padding: 1em 1.5em;
+        height: 10%;
+        box-sizing: border-box;
+        a{  
+            display: flex;
+            align-items: center;
+            color: #fff;
+            font-weight: 500;
+            text-decoration: none;
+            &:visited{
+                color:#fff;
+            }
+        }
+    }
+    .video{
+        width: 100%;
+        height: 90%;
+        object-fit: cover;
+    }
+
+}
+
+
+// responsive web
+@mixin mobile {
+    
+}
+
+@mixin tablet {
+   
+}
+
+@mixin desktop {
+  
+}

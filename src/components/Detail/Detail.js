@@ -18,7 +18,7 @@ const Detail = ({id, modalClose, type}) => {
         fetch(endpoint)
         .then(response => response.json())
         .then(response => {
-            console.log(response);
+            console.log(response, id, type);
             setContent(response);
         });
 
@@ -40,7 +40,7 @@ const Detail = ({id, modalClose, type}) => {
         });
     },[])
 
-    const casts_main = casts.slice(0,3);
+    const casts_main = casts.slice(0,3); // 배우는 3명만 출력
 
     return (
         <>
@@ -62,8 +62,7 @@ const Detail = ({id, modalClose, type}) => {
             </div>
             <div className="itemInfo">
                 <div className="icons">
-                    {/* 링크는 state 가져갈 수 있음! 성용쌤 강의내용 참고할 것! */}
-                    <Link to={`/watch/${id}`} className="playBtn" onClick={modalClose}>
+                    <Link to={`/watch/${type}/${id}`} className="playBtn" onClick={modalClose}>
                         <button><PlayArrow/></button>
                     </Link>  
                     <Add className="icon"/>

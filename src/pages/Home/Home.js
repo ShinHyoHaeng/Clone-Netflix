@@ -65,7 +65,8 @@ const Home = () => {
                             <Featured image={`${IMAGE_BASE_URL}w1280/${featuredImg.backdrop_path}`}
                                 title={featuredImg.original_title}
                                 desc={featuredImg.overview}
-                                movieId={featuredImg.id}
+                                id={featuredImg.id}
+                                type='movie'
                             />
                         }
                     </div>

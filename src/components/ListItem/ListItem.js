@@ -10,8 +10,10 @@ export default function ListItem({idx, image, title, id, type}) {
         setModalOpen(!modalOpen)
         if(modalOpen){
             document.getElementById("root").style.overflow = "unset";
+            document.body.style.overflow = "unset";
         }else{
             document.getElementById("root").style.overflow = "hidden";
+            document.body.style.overflow = "hidden";
         }
     }
 
@@ -21,7 +23,7 @@ export default function ListItem({idx, image, title, id, type}) {
                 <span className="ranking">{idx+1}</span>
                 <img src={image} alt={title} />
             </div>       
-            <>{modalOpen && <Modal id={id} modalClose={modalClose} type={type}></Modal>}</>
+            {modalOpen && <Modal id={id} modalClose={modalClose} type={type}></Modal>}
         </>
     )
 }
