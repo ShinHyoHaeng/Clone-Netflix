@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import {Modal} from '../../components'
 import './featured.scss'
 
-const Featured = ({image, title, desc, id, type}) => {
+const Featured = ({image, title, desc, id, type, originalTitle}) => {
 
     const [modalOpen, setModalOpen] = useState(false)
     const modalClose = () => {
@@ -24,7 +24,8 @@ const Featured = ({image, title, desc, id, type}) => {
                     
             <div className="info">
                 <h1>{title}</h1>
-                <span className="desc">{desc}</span>
+                <h2>{originalTitle}</h2>
+                {/* <span className="desc">{desc}</span> */}
                 <div className="buttons">
                     <button className="play">
                         <Link to={`/watch/${type}/${id}`}>

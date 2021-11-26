@@ -46,7 +46,7 @@ const Home = () => {
     const popMovieItems = popMovies.map((popMovie, index) => (
         <ListItem key={index}
             idx={index}
-            image={popMovie.backdrop_path ? `${IMAGE_BASE_URL}w500${popMovie.backdrop_path}`:null}
+            image={popMovie.poster_path? `${IMAGE_BASE_URL}w500${popMovie.poster_path}`:null}
             id={popMovie.id}
             title={popMovie.title}
             originalTitle={popMovie.original_title}
@@ -57,7 +57,7 @@ const Home = () => {
     const popSeriesItems = popSeries.map((popSeries, index) => (
         <ListItem key={index}
             idx={index}
-            image={popSeries.backdrop_path? `${IMAGE_BASE_URL}w500/${popSeries.backdrop_path}`:null}
+            image={popSeries.poster_path? `${IMAGE_BASE_URL}w500/${popSeries.poster_path}`:null}
             id={popSeries.id}
             title={popSeries.name}
             originalTitle={popSeries.original_name}
@@ -69,13 +69,14 @@ const Home = () => {
         
         <ListItem key={index}
             idx={index}
-            image={Trending.poster_path ? `${IMAGE_BASE_URL}w500/${Trending.poster_path}`:null}
+            image={Trending.poster_path? `${IMAGE_BASE_URL}w500/${Trending.poster_path}`:null}
             id={Trending.id}
             title={Trending.name? Trending.name:Trending.title}
             originalTitle={Trending.original_name? Trending.original_name:Trending.original_title}
             type={Trending.media_type}
         />
     ))
+
 
     return (
         <>

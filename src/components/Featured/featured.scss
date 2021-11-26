@@ -1,7 +1,7 @@
 @import '../../mixin'; // responsive web
 
 .featured{
-    height: 75vh;
+    height: 65vh;
     position:relative;
     .category{
         position:absolute;
@@ -43,9 +43,12 @@
             font-size: 45px;
             text-shadow: 4px 3px 4px rgba(0,0,0,0.8);
         }
+        h2{
+            text-shadow: 4px 3px 4px rgba(0,0,0,0.8);
+        }
         .desc{
             margin-top: 30px;
-            font-size: 18px;
+            font-size: #{$font-default};
             line-height: 1.5em;
             text-shadow: 4px 3px 4px rgba(0,0,0,0.8);
         }
@@ -91,7 +94,7 @@
 
 @include mobile {
     .featured{
-        height:65vh;
+        height:50vh;
         .info{
             width:100%;
             position:absolute;
@@ -104,10 +107,14 @@
                 margin:0 auto 1.5em auto;
             }
             h1{
-                font-size: 2em;
-                margin-bottom: 1em;
-                padding:0 1.5em;
+                font-size: #{$font-large};
+                padding:0 1em;
                 text-align: center;
+            }
+            h2{
+                font-size: #{$font-default};
+                padding:0 1em;
+                margin-bottom: 1em;
             }
             .desc{
                 display: none;

@@ -1,11 +1,9 @@
-import React, {useState} from "react"
+import React, {useRef, useState} from "react"
 import {Modal} from '../../components'
 import './listItem.scss'
 
 export default function ListItem({image, title, id, type}) {    
-
     const [modalOpen, setModalOpen] = useState(false)
-
     const modalClose = () => {
         setModalOpen(!modalOpen)
         if(modalOpen){
@@ -20,7 +18,7 @@ export default function ListItem({image, title, id, type}) {
     return (
         <>
             <div className="listItem" onClick={modalClose}>
-                <img src={image} alt={title} />
+                <img src={image} alt={title}/>
             </div>       
             {modalOpen && <Modal id={id} modalClose={modalClose} type={type}></Modal>}
         </>
