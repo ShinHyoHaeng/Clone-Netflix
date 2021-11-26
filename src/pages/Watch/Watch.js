@@ -10,6 +10,7 @@ const Watch = () => {
     const [video, setVideo] = useState([]);
     const [embedId, setEmbedId] = useState('');
     const [name, setName] = useState('');
+    const [hidden, setHidden] = useState(true);
 
     useEffect(() => {
         const endpoint = `${API_URL}${type}/${id}/videos?api_key=${API_KEY}`;
@@ -21,10 +22,22 @@ const Watch = () => {
             setName(response.results[0].name)
         });
     }, []);
+
+    const handleHidden = () => {
+        setHidden(!hidden)
+         if(hidden){
+            document.getElementById("root").style.overflow = "unset";
+            document.body.style.overflow = "unset";
+        }else{
+            document.getElementById("root").style.overflow = "hidden";
+            document.body.style.overflow = "hidden";
+        }
+    }
+
     return (
         <div className="watch">
             <div className="back">
-                <Link to="/">
+                <Link to="/" onClick={handleHidden}>
                     <ArrowBackOutlined/> 
                     Home
                 </Link>
