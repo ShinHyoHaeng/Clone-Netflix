@@ -7,12 +7,14 @@ const Home = () => {
     const [loading, setLoading] = useState(true)
     const [popMovies, setPopMovies] = useState([]);
     const [popSeries, setPopSeries] = useState([]);
+    const [Trendings, setTrendings] = useState([]);
     const [featuredImg, setFeaturedImg] = useState(null);
 
     useEffect(() => {
         
-        const endpointPopM = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
-        const endpointPopTV = `${API_URL}tv/popular?api_key=${API_KEY}&language=en-US&page=1`;
+        const endpointPopM = `${API_URL}movie/popular?api_key=${API_KEY}&language=ko-KR&region=KR&page=1`;
+        const endpointPopTV = `${API_URL}tv/popular?api_key=${API_KEY}&language=ko-KR&region=KR&page=1`;
+        const endpointTrend = `${API_URL}trending/all/day?api_key=${API_KEY}&language=ko-KR&region=KR`;
 
         fetch(endpointPopM)
         .then((response) => (response.json()))
@@ -23,11 +25,19 @@ const Home = () => {
             setLoading(false)
         });
 
-         fetch(endpointPopTV)
+        fetch(endpointPopTV)
         .then((response) => (response.json()))
         .then((response) => {
             console.log(response.results);
             setPopSeries(response.results);
+            setLoading(false)
+        });
+
+        fetch(endpointTrend)
+        .then((response) => (response.json()))
+        .then((response) => {
+            console.log(response.results);
+            setTrendings(response.results);
             setLoading(false)
         });
 
@@ -38,7 +48,8 @@ const Home = () => {
             idx={index}
             image={popMovie.poster_path ? `${IMAGE_BASE_URL}w500${popMovie.poster_path}`:null}
             id={popMovie.id}
-            title={popMovie.original_title}
+            title={popMovie.title}
+            originalTitle={popMovie.original_title}
             type='movie'
         />
     ))
@@ -48,8 +59,20 @@ const Home = () => {
             idx={index}
             image={popSeries.poster_path ? `${IMAGE_BASE_URL}w500/${popSeries.poster_path}`:null}
             id={popSeries.id}
-            title={popSeries.original_name}
+            title={popSeries.name}
+            originalTitle={popSeries.original_name}
             type='tv'
+        />
+    ))
+
+    const trendItems = Trendings.map((Trending, index) => (
+        <ListItem key={index}
+            idx={index}
+            image={Trending.poster_path ? `${IMAGE_BASE_URL}w500/${Trending.poster_path}`:null}
+            id={Trending.id}
+            title={Trending.name? Trending.name:Trending.title}
+            originalTitle={Trending.original_name? Trending.original_name:Trending.original_title}
+            type={Trending.media_type}
         />
     ))
 
@@ -63,12 +86,22 @@ const Home = () => {
                     <div className="visualArea">
                         {featuredImg &&
                             <Featured image={`${IMAGE_BASE_URL}w1280/${featuredImg.backdrop_path}`}
-                                title={featuredImg.original_title}
+                                title={featuredImg.title}
+                                originalTitle={featuredImg.original_title}
                                 desc={featuredImg.overview}
                                 id={featuredImg.id}
                                 type='movie'
                             />
                         }
+                    </div>
+                    
+                    <div className="list">
+                        <span className="listTitle">What's Trending</span>
+                        {
+                            trendItems.length > 0 ?
+                            <Carousel>{trendItems}</Carousel>
+                            : null
+                        }  
                     </div>
 
                     <div className="list">

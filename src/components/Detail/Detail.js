@@ -13,9 +13,9 @@ const Detail = ({id, modalClose, type}) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        let endpoint = `${API_URL}${type}/${id}?api_key=${API_KEY}`;
-        let endpointCrews = `${API_URL}${type}/${id}/credits?api_key=${API_KEY}`;
-        let endpointProv = `${API_URL}${type}/${id}/watch/providers?api_key=${API_KEY}`;
+        let endpoint = `${API_URL}${type}/${id}?api_key=${API_KEY}&language=ko-KR&region=KR`;
+        let endpointCrews = `${API_URL}${type}/${id}/credits?api_key=${API_KEY}&language=ko-KR&region=KR`;
+        let endpointProv = `${API_URL}${type}/${id}/watch/providers?api_key=${API_KEY}&language=ko-KR&region=KR`;
 
         fetch(endpoint)
         .then(response => response.json())
@@ -36,8 +36,8 @@ const Detail = ({id, modalClose, type}) => {
         fetch(endpointProv)
         .then(response => response.json())
         .then(response => {
-            setProviders(response.results.US.flatrate);
-            console.log(response.results.US.flatrate);
+            setProviders(response.results.KR.flatrate);
+            console.log(response.results.KR.flatrate);
             setLoading(false);
         })
         .catch(err => {
@@ -58,15 +58,19 @@ const Detail = ({id, modalClose, type}) => {
                             <img src={`${IMAGE_BASE_URL}w1280${content.backdrop_path}`} alt={content.title}/>
                         }
                         <div className="itemText">
-                            <h1>{content.original_title? content.original_title :content.original_name}</h1>
-                            <p className="providers">
-                                {
-                                    providers ?
-                                    (providers.map((provider, index) => (
-                                        <img key={index} src={`${IMAGE_BASE_URL}original/${provider.logo_path}`} alt={provider.provider_name}/>
-                                    ))) : ''
-                                }
-                            </p>
+                            <h1>{content.title? content.title :content.name}</h1>
+                            <h2>
+                                {content.title === content.original_title? "" : content.original_title }
+                                {content.name === content.original_name? "" : content.original_name}
+                            </h2>
+                        </div>
+                        <div className="providers">
+                            {
+                                providers ?
+                                (providers.map((provider, index) => (
+                                    <img key={index} src={`${IMAGE_BASE_URL}original/${provider.logo_path}`} alt={provider.provider_name}/>
+                                ))) : ''
+                            }
                         </div>
                         <Link to={`/watch/${type}/${id}`} className="playBtn" onClick={modalClose}>
                             <button><PlayArrow/></button>
@@ -87,17 +91,15 @@ const Detail = ({id, modalClose, type}) => {
                                 <span>{content.first_air_date} ~ {content.last_air_date}</span> : <span>{content.first_air_date}</span>}
                             
                         </div>
-                        <div className="casts">
+                        <p className="casts">
                                 <b>Casts | </b>
-                                <p>
-                                    {
-                                        casts_main &&
-                                        casts_main.map((cast, index)=>(
-                                            <span key={index}>{cast.name}</span>
-                                        ))
-                                    }
-                                </p>
-                            </div>
+                                {
+                                    casts_main &&
+                                    casts_main.map((cast, index)=>(
+                                        <span key={index}>{cast.name}</span>
+                                    ))
+                                }
+                            </p>
                         <p className="desc">{content.overview}</p>
                     </div>
                 </>
