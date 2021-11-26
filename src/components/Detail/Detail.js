@@ -9,8 +9,7 @@ const Detail = ({id, modalClose, type}) => {
 
     const [content, setContent] = useState([]);
     const [casts, setCasts] = useState([]);
-    const [subProviders, setSubProviders] = useState([]);
-    const [buyProviders, setBuyProviders] = useState([]);
+    const [allProviders, setAllProviders] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -37,16 +36,31 @@ const Detail = ({id, modalClose, type}) => {
         fetch(endpointProv)
         .then(response => response.json())
         .then(response => {
-            setSubProviders(response.results.KR.flatrate);
-            setBuyProviders(response.results.KR.buy);
+            setAllProviders((response.results.KR.flatrate).concat(response.results.KR.buy));
+            console.log((response.results.KR.flatrate).concat(response.results.KR.buy));
             setLoading(false);
         })
         .catch(err => {
-            console.log('no providers')
+            console.log('no providers');
+            setAllProviders([])
         });
     },[])
 
     const casts_main = casts.slice(0,3); // 배우는 3명만 출력
+
+    const providers = []
+    for(let i = 0; i < allProviders.length; i++){
+        let provider = allProviders[i]
+        console.log(provider)
+        if(!sameProvider(provider.provider_id)){
+            providers.push(provider)
+        }else{
+            i--;
+        }
+    }
+    function sameProvider(provider_id){
+        return providers.find((e) => (e === provider_id))
+    }
 
     return (
         <>
@@ -67,13 +81,8 @@ const Detail = ({id, modalClose, type}) => {
                         </div>
                         <div className="providers">
                             {
-                                subProviders ?
-                                (subProviders.map((provider, index) => (
-                                    <img key={index} src={`${IMAGE_BASE_URL}original/${provider.logo_path}`} alt={provider.provider_name}/>
-                                ))) : ''
-                            }
-                            {   buyProviders ?
-                                (buyProviders.map((provider, index) => (
+                                providers ?
+                                (providers.map((provider, index) => (
                                     <img key={index} src={`${IMAGE_BASE_URL}original/${provider.logo_path}`} alt={provider.provider_name}/>
                                 ))) : ''
                             }

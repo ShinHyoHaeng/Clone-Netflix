@@ -7,6 +7,7 @@ import './featured.scss'
 const Featured = ({image, title, desc, id, type, originalTitle}) => {
 
     const [modalOpen, setModalOpen] = useState(false)
+
     const modalClose = () => {
         setModalOpen(!modalOpen)
         if(modalOpen){

@@ -16,6 +16,8 @@ const Home = () => {
         const endpointPopTV = `${API_URL}tv/popular?api_key=${API_KEY}&language=ko-KR&region=KR&page=1`;
         const endpointTrend = `${API_URL}trending/all/day?api_key=${API_KEY}&language=ko-KR&region=KR`;
 
+
+        
         fetch(endpointPopM)
         .then((response) => (response.json()))
         .then((response) => {
