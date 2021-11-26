@@ -68,12 +68,12 @@ const Detail = ({id, modalClose, type}) => {
                                 }
                             </p>
                         </div>
+                        <Link to={`/watch/${type}/${id}`} className="playBtn" onClick={modalClose}>
+                            <button><PlayArrow/></button>
+                        </Link> 
                     </div>
                     <div className="itemInfo">
-                        <div className="icons">
-                            <Link to={`/watch/${type}/${id}`} className="playBtn" onClick={modalClose}>
-                                <button><PlayArrow/></button>
-                            </Link>  
+                        <div className="icons"> 
                             <Add className="icon"/>
                             <ThumbUpAltOutlined className="icon"/>
                             <ThumbDownOutlined className="icon"/>
@@ -88,10 +88,11 @@ const Detail = ({id, modalClose, type}) => {
                             
                         </div>
                         <p className="casts">
+                                <b>Casts | </b>
                                 {
                                     casts_main &&
                                     casts_main.map((cast, index)=>(
-                                        <span key={index}>{cast.character}({cast.name}) </span>
+                                        <span key={index}>{cast.name}</span>
                                     ))
                                 }
                             </p>
