@@ -9,7 +9,8 @@ const Detail = ({id, modalClose, type}) => {
 
     const [content, setContent] = useState([]);
     const [casts, setCasts] = useState([]);
-    const [providers, setProviders] = useState([]);
+    const [subProviders, setSubProviders] = useState([]);
+    const [buyProviders, setBuyProviders] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -36,8 +37,8 @@ const Detail = ({id, modalClose, type}) => {
         fetch(endpointProv)
         .then(response => response.json())
         .then(response => {
-            setProviders(response.results.KR.flatrate);
-            console.log(response.results.KR.flatrate);
+            setSubProviders(response.results.KR.flatrate);
+            setBuyProviders(response.results.KR.buy);
             setLoading(false);
         })
         .catch(err => {
@@ -66,8 +67,13 @@ const Detail = ({id, modalClose, type}) => {
                         </div>
                         <div className="providers">
                             {
-                                providers ?
-                                (providers.map((provider, index) => (
+                                subProviders ?
+                                (subProviders.map((provider, index) => (
+                                    <img key={index} src={`${IMAGE_BASE_URL}original/${provider.logo_path}`} alt={provider.provider_name}/>
+                                ))) : ''
+                            }
+                            {   buyProviders ?
+                                (buyProviders.map((provider, index) => (
                                     <img key={index} src={`${IMAGE_BASE_URL}original/${provider.logo_path}`} alt={provider.provider_name}/>
                                 ))) : ''
                             }

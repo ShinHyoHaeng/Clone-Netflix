@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import {Modal} from '../../components'
 import './featured.scss'
 
-const Featured = ({image, title, originalTitle, desc, id, type}) => {
+const Featured = ({image, title, desc, id, type}) => {
 
     const [modalOpen, setModalOpen] = useState(false)
     const modalClose = () => {

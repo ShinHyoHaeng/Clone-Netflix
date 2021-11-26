@@ -46,7 +46,7 @@ const Home = () => {
     const popMovieItems = popMovies.map((popMovie, index) => (
         <ListItem key={index}
             idx={index}
-            image={popMovie.poster_path ? `${IMAGE_BASE_URL}w500${popMovie.poster_path}`:null}
+            image={popMovie.backdrop_path ? `${IMAGE_BASE_URL}w500${popMovie.backdrop_path}`:null}
             id={popMovie.id}
             title={popMovie.title}
             originalTitle={popMovie.original_title}
@@ -57,7 +57,7 @@ const Home = () => {
     const popSeriesItems = popSeries.map((popSeries, index) => (
         <ListItem key={index}
             idx={index}
-            image={popSeries.poster_path ? `${IMAGE_BASE_URL}w500/${popSeries.poster_path}`:null}
+            image={popSeries.backdrop_path? `${IMAGE_BASE_URL}w500/${popSeries.backdrop_path}`:null}
             id={popSeries.id}
             title={popSeries.name}
             originalTitle={popSeries.original_name}
@@ -66,6 +66,7 @@ const Home = () => {
     ))
 
     const trendItems = Trendings.map((Trending, index) => (
+        
         <ListItem key={index}
             idx={index}
             image={Trending.poster_path ? `${IMAGE_BASE_URL}w500/${Trending.poster_path}`:null}

@@ -10,7 +10,6 @@
     img{
         width:100%;
         height: 100%;
-        min-height: 480px;
         object-fit: cover;
     }
     .ranking{
@@ -34,9 +33,6 @@
 @include mobile {
     .listItem{
         border-radius:10px;
-        img{
-            min-height: 240px;
-        }
         .ranking{
             font-size: 1rem;
             width: 1.75em;
@@ -55,12 +51,7 @@
     }
 }
 
-@include desktop {    
-     .listItem{
-        img{
-            min-height: 360px;
-        }
-    }
+@include desktop {   
 }
 
 @include xldesktop {
