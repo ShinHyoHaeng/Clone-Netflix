@@ -37,7 +37,7 @@ import { BrowserView, MobileView } from 'react-device-detect';
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="logo" />
                             </Link>
                             {/* 추후에 페이지를 만든 후 수정할 예정 */}
-                            <span>Movies</span>
+                            <Link to="/movies">Movies</Link>
                             <span>Series</span>
                             <span>New and Popular</span>
                             <span>My List</span>
@@ -90,7 +90,11 @@ import { BrowserView, MobileView } from 'react-device-detect';
                         </div>
                         <div className="menu">
                             <ul>
-                                <li>Movies</li>
+                                <li>
+                                    <Link to="/movies">
+                                        Movies
+                                    </Link>
+                                </li>
                                 <li>Series</li>
                                 <li>New and Popular</li>
                                 <li>My List</li>

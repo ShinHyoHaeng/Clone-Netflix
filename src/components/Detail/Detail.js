@@ -87,15 +87,17 @@ const Detail = ({id, modalClose, type}) => {
                                 <span>{content.first_air_date} ~ {content.last_air_date}</span> : <span>{content.first_air_date}</span>}
                             
                         </div>
-                        <p className="casts">
+                        <div className="casts">
                                 <b>Casts | </b>
-                                {
-                                    casts_main &&
-                                    casts_main.map((cast, index)=>(
-                                        <span key={index}>{cast.name}</span>
-                                    ))
-                                }
-                            </p>
+                                <p>
+                                    {
+                                        casts_main &&
+                                        casts_main.map((cast, index)=>(
+                                            <span key={index}>{cast.name}</span>
+                                        ))
+                                    }
+                                </p>
+                            </div>
                         <p className="desc">{content.overview}</p>
                     </div>
                 </>

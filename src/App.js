@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Route, Routes} from 'react-router-dom'
-import { Home, Login, Register, MyPage, Watch } from "./pages";
+import { Home, Login, Register, MyPage, Watch, Movies } from "./pages";
 import './main.scss'
 
 class App extends Component {
@@ -9,6 +9,7 @@ class App extends Component {
       <>
         <Routes>
           <Route exact path="/" element={<Home />}/>
+          <Route exact path="/movies" element={<Movies />}/>
           <Route path="/watch/:type/:id" element={<Watch/>}/>
         </Routes>
       </>
